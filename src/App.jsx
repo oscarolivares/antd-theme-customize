@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Layout, Spin, Row, Col, Form, Select, Result, Button } from "antd";
 import ToogleDarkMode from './components/ToogleDarkMode'
 
-import darkVars from "./dark.json";
-import lightVars from "./light.json";
+import darkVars from "./styles/theme/dark.json";
+import lightVars from "./styles/theme/light.json";
 import "./styles/main.less";
 
 function App() {

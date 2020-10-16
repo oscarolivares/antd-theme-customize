@@ -28,7 +28,8 @@ export default function ToogleDarkMode({ theme, setTheme, darkVars, lightVars })
   return (
     <div style={style.div}>
       <Typography style={style.typography}>Darkmode</Typography>
-      <Switch defaultChecked={theme.themeName === 'dark'} onChange={(checked) => { handleChange(checked) }}></Switch>
+      {/* <Switch defaultChecked={theme.themeName === 'dark'} onChange={(checked) => { handleChange(checked) }}></Switch> */}
+      <Switch checked={theme.themeName === 'dark'} onChange={(checked) => { handleChange(checked) }}></Switch>
     </div>
   );
 }

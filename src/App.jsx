@@ -6,6 +6,8 @@ import darkVars from "./styles/theme/dark.json";
 import lightVars from "./styles/theme/light.json";
 import "./styles/main.less";
 
+import BasicLayout from './layouts/BasicLayout';
+
 function App() {
   let initialValue = lightVars;
   const Option = Select.Option;
@@ -72,34 +74,37 @@ function App() {
   return (
     <>
       <Layout className="app">
-        <ToogleDarkMode theme={theme} setTheme={setTheme} darkVars={darkVars} lightVars={lightVars} />
-        <Row className="theme-selector-dropdown">
-          <Col span={22} offset={1}>
-            <FormItem
-              label="Choose Theme"
-              className="ant-col ant-col-xs-22 ant-col-offset-1 choose-theme"
-            >
-              <Select
-                placeholder="Please select theme"
-                value={theme.themeName}
-                onSelect={value => {
-                  let vars = value === 'light' ? lightVars : darkVars;
-                  vars = { ...vars, '@white': '#fff', '@black': '#000' };
-                  setTheme({ ...theme, vars, themeName: value });
-                  localStorage.setItem("app-theme", JSON.stringify(vars));
-                  localStorage.setItem("theme-name", value);
-                  window.less.modifyVars(vars).catch(error => {
-
-                  });
-                }}
+        <BasicLayout>
+          {/* <ToogleDarkMode theme={theme} setTheme={setTheme} darkVars={darkVars} lightVars={lightVars} />
+          <Row className="theme-selector-dropdown">
+            <Col span={22} offset={1}>
+              <FormItem
+                label="Choose Theme"
+                className="ant-col ant-col-xs-22 ant-col-offset-1 choose-theme"
               >
-                <Option value="light">Light</Option>
-                <Option value="dark">Dark</Option>
-              </Select>
-            </FormItem>
-          </Col>
-        </Row>
+                <Select
+                  placeholder="Please select theme"
+                  value={theme.themeName}
+                  onSelect={value => {
+                    let vars = value === 'light' ? lightVars : darkVars;
+                    vars = { ...vars, '@white': '#fff', '@black': '#000' };
+                    setTheme({ ...theme, vars, themeName: value });
+                    localStorage.setItem("app-theme", JSON.stringify(vars));
+                    localStorage.setItem("theme-name", value);
+                    window.less.modifyVars(vars).catch(error => {
+
+                    });
+                  }}
+                >
+                  <Option value="light">Light</Option>
+                  <Option value="dark">Dark</Option>
+                </Select>
+              </FormItem>
+            </Col>
+          </Row> */}
+        </BasicLayout>
       </Layout>
+
     </>
   );
 }
